@@ -1,0 +1,135 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="box">
+      <p>Enter a text to check for palindrome</p>
+      <input name="" id="text-input"/>
+      <button id="check-btn" onclick="checkIt()">Check!</button>
+      <p id="result"></p>
+    </div>
+    <div class="box-2">
+      <h2>Notes</h2>
+      <p>
+        A palindrome is a word/number/phrase the is same when read from forward and backward
+      </p>
+    </div>
+    <script src="./script.js">
+      
+    </script>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+const checkBtn = document.getElementById("check-btn");
+const textInput = document.getElementById("text-input");
+const result = document.getElementById("result");
+function checkIt() {
+  const value = textInput.value.trim();
+  if(value === "") {
+    alert("Please input a value");
+    return;
+  } 
+  checkPalindrome(value);
+  textInput.value = "";
+}
+function checkPalindrome(value) {
+  const regex = /[^a-zA-Z0-9]/g
+  const cleanedValue = value.replace(regex,"").toLowerCase();
+  const reverseValue = cleanedValue.split("").reverse().join("");
+  if(cleanedValue === reverseValue) {
+    result.innerText = `${value} is a palindrome`
+  } else {
+    result.innerText = `${value} is not a palindrome` 
+  }
+}
+
+** end of undefined **
+
+** start of undefined **
+
+* {
+  box-sizing: border-box;
+}
+html ,body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3em;
+  height: 100%;
+  font-family: 'Roboto',sans-serif;
+  background-color: rgb(2, 43, 58);
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+.box-2 {
+  color: rgb(220, 224, 217);
+  background-color: rgb(77, 139, 54);
+  padding: 7px;
+  border-radius: 1em;
+  width: 55%;
+  line-height: 1.3em;
+  letter-spacing: 1px;
+}
+
+.box p {
+  margin-bottom: 3px;
+  font-weight: 300;
+  font-size: 1em;
+  color: white;
+}
+.box-2 p {
+  margin: 0px;
+  color: rgb(219, 211, 201);
+}
+.box-2 h2 {
+  margin: .5em 0 0.3em;
+  font-weight: 600;
+  color: rgb(185, 139, 130)
+}
+.box input {
+  border-width: 1px;
+  border-radius: 20px;
+  width: 65%;
+  height: 2em;
+
+}
+.box input:focus {
+  outline: none;
+  width: 75%;
+  font-size: 1em;
+  padding-left: 10px;
+}
+.box button {
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.5em;
+  color: white;
+  background-color: rgb(193, 121, 185);
+  width: 5em;
+}
+.box button:hover {
+  background-color: rgb(193, 121, 227);
+}
+#result {
+  font-size: 1em;
+}
+
+** end of undefined **
+
